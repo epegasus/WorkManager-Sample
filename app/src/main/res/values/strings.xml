@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WorkManager</string>
+
+    <string name="types_of_work_manager">Types of Work Manager</string>
+    <string name="immediate">Immediate (One Time)</string>
+    <string name="long_running">Long Running (One Time &amp; Periodic)</string>
+    <string name="deferrable">Deferrable (One Time &amp; Periodic)</string>
+</resources>

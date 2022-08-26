@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.FragmentHome">
+
+        <TextView
+            android:id="@+id/tv_title_Home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/types_of_work_manager"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toTopOf="@+id/btn_immediate_Home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_immediate_Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/immediate"
+            app:layout_constraintBottom_toTopOf="@+id/btn_long_running_Home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_Home" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_long_running_Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/long_running"
+            app:layout_constraintBottom_toTopOf="@+id/btn_deferrable_Home"
+            app:layout_constraintEnd_toEndOf="@+id/btn_immediate_Home"
+            app:layout_constraintStart_toStartOf="@+id/btn_immediate_Home"
+            app:layout_constraintTop_toBottomOf="@+id/btn_immediate_Home" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_deferrable_Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deferrable"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btn_long_running_Home"
+            app:layout_constraintStart_toStartOf="@+id/btn_long_running_Home"
+            app:layout_constraintTop_toBottomOf="@+id/btn_long_running_Home" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
