@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentImmediate"
-        android:name="dev.pegasus.workmanager.FragmentImmediate"
+        android:name="dev.pegasus.workmanager.ui.fragments.immediate.FragmentImmediate"
         android:label="fragment_immediate"
         tools:layout="@layout/fragment_immediate" />
 </navigation>

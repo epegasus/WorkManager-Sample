@@ -1,6 +1,7 @@
 package dev.pegasus.workmanager.ui.fragments
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ open class BaseFragment<T : ViewDataBinding> : Fragment() {
     lateinit var globalContext: Context
     lateinit var globalActivity: Activity
     lateinit var mainActivity: Activity
+    val appContext by lazy { mainActivity.applicationContext }
 
     fun getView(inflater: LayoutInflater, container: ViewGroup?, layout: Int): View {
         _binding = DataBindingUtil.inflate(inflater, layout, container, false)
