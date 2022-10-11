@@ -13,8 +13,8 @@ import androidx.work.workDataOf
 import dev.pegasus.workmanager.R
 import dev.pegasus.workmanager.databinding.FragmentImmediateBinding
 import dev.pegasus.workmanager.helper.utils.GeneralUtils.TAG
-import dev.pegasus.workmanager.helper.workers.CalculateWorker
-import dev.pegasus.workmanager.helper.workers.DataCalculatorWorker
+import dev.pegasus.workmanager.helper.workers.immediate.CalculateWorker
+import dev.pegasus.workmanager.helper.workers.immediate.DataCalculatorWorker
 import dev.pegasus.workmanager.ui.fragments.BaseFragment
 
 class FragmentImmediate : BaseFragment<FragmentImmediateBinding>() {
@@ -39,26 +39,6 @@ class FragmentImmediate : BaseFragment<FragmentImmediateBinding>() {
         }
     }
 
-    private fun observeOutput(dataWorker: OneTimeWorkRequest) {
-        WorkManager.getInstance(appContext).getWorkInfoByIdLiveData(dataWorker.id).observe(viewLifecycleOwner) {
-            when (it.state) {
-                WorkInfo.State.BLOCKED -> { Log.d(TAG, "observeOutput: BLOCKED") }
-                WorkInfo.State.CANCELLED -> { Log.d(TAG, "observeOutput: CANCELLED") }
-                WorkInfo.State.ENQUEUED -> { Log.d(TAG, "observeOutput: ENQUEUED") }
-                WorkInfo.State.FAILED -> { Log.d(TAG, "observeOutput: FAILED") }
-                WorkInfo.State.RUNNING -> { Log.d(TAG, "observeOutput: RUNNING") }
-                WorkInfo.State.SUCCEEDED -> {
-                    Log.d(TAG, "observeOutput: SUCCEEDED")
-                    val result = it.outputData.getInt("results", 0)
-                    binding.tvStatusImmediate.text = result.toString()
-                }
-            }
-            if (it.state.isFinished) {
-                Log.d(TAG, "observeOutput: isFinished")
-            }
-        }
-    }
-
     private fun buildRequestTypeOne(): OneTimeWorkRequest {
         // Static method (Can use when no additional configuration needed)
         return OneTimeWorkRequest.from(CalculateWorker::class.java)
@@ -80,5 +60,25 @@ class FragmentImmediate : BaseFragment<FragmentImmediateBinding>() {
         return OneTimeWorkRequestBuilder<DataCalculatorWorker>()
             .setInputData(workDataOf)
             .build()
+    }
+
+    private fun observeOutput(dataWorker: OneTimeWorkRequest) {
+        WorkManager.getInstance(appContext).getWorkInfoByIdLiveData(dataWorker.id).observe(viewLifecycleOwner) {
+            when (it.state) {
+                WorkInfo.State.BLOCKED -> { Log.d(TAG, "observeOutput: BLOCKED") }
+                WorkInfo.State.CANCELLED -> { Log.d(TAG, "observeOutput: CANCELLED") }
+                WorkInfo.State.ENQUEUED -> { Log.d(TAG, "observeOutput: ENQUEUED") }
+                WorkInfo.State.FAILED -> { Log.d(TAG, "observeOutput: FAILED") }
+                WorkInfo.State.RUNNING -> { Log.d(TAG, "observeOutput: RUNNING") }
+                WorkInfo.State.SUCCEEDED -> {
+                    Log.d(TAG, "observeOutput: SUCCEEDED")
+                    val result = it.outputData.getInt("results", 0)
+                    binding.tvStatusImmediate.text = result.toString()
+                }
+            }
+            if (it.state.isFinished) {
+                Log.d(TAG, "observeOutput: isFinished")
+            }
+        }
     }
 }

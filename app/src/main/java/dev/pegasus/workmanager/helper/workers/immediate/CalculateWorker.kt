@@ -1,8 +1,7 @@
-package dev.pegasus.workmanager.helper.workers
+package dev.pegasus.workmanager.helper.workers.immediate
 
 import android.content.Context
 import android.util.Log
-import androidx.work.Data
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import dev.pegasus.workmanager.helper.utils.GeneralUtils.TAG

@@ -1,4 +1,4 @@
-package dev.pegasus.workmanager.helper.workers
+package dev.pegasus.workmanager.helper.workers.immediate
 
 import android.content.Context
 import androidx.work.Worker

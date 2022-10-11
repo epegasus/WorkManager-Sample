@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="dev.pegasus.workmanager.ui.fragments.FragmentHome"
+        android:name="dev.pegasus.workmanager.ui.fragments.home.FragmentHome"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -17,10 +17,22 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentDeferrable"
+            app:destination="@id/fragmentDeferrable"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/fragmentImmediate"
         android:name="dev.pegasus.workmanager.ui.fragments.immediate.FragmentImmediate"
         android:label="fragment_immediate"
         tools:layout="@layout/fragment_immediate" />
+    <fragment
+        android:id="@+id/fragmentDeferrable"
+        android:name="dev.pegasus.workmanager.ui.fragments.deferrable.FragmentDeferrable"
+        android:label="fragment_deferrable"
+        tools:layout="@layout/fragment_deferrable" />
 </navigation>
